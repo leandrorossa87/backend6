@@ -11,6 +11,11 @@ app.set('views', __dirname + '/views');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(require('./routes/products'));
 
-//deje en 1.33.39
-
+app.use((err, req, res, next) => {
+    return res.json({
+        error: err.message
+        // de esta forma da el mensaje de error dependiendo el error en el formulario
+    });
+    
+});
 app.listen(8000, () => console.log("Servidor iniciado en puerto 8000"));

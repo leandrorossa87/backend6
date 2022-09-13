@@ -8,11 +8,21 @@ const renderUploadProductViews = (req, res) => {
 };
 
 const renderSuccessProductCreated = (res, req) => {
-  //como obtener los datos que van por la peticion
-    const name = req.body.product_name;
-    const price = req.body.product_price;
+  
+    const { product_name, product_description, product_price} = req.body;
+
+    return res.render('product-created', {
     
-    return res.render('product-created', name, price);
+        product_name,
+        product_description,
+        product_price
+    });
+  
+    //como obtener los datos que van por la peticion
+   // const name = req.body.product_name;
+    //const price = req.body.product_price;
+    
+    //return res.render('product-created', name, price);
 
 };
 
