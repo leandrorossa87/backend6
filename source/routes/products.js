@@ -10,12 +10,12 @@ router.get('/cargar-producto', renderUploadProductViews);
 // esto valida lo que queremos del precio
 router.post('/cargar-producto-backend', (req, res, next) => {
 
-    if(req.body.product_name || req.body.product_name.length <5) {
+    if(!req.body.product_name || req.body.product_name.length <5) {
         throw new Error("El producto no cumple las validaciones");
     }
 
 
-    if(req.body.product_price || req.body.product_price < 2) {
+    if(!req.body.product_price || req.body.product_price < 2) {
         throw new Error("El producto esta por debajo de 2 peso");
     }
 
